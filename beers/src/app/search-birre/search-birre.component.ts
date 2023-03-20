@@ -12,7 +12,6 @@ export class SearchBirreComponent {
   query: string | undefined;
   obsBeers: Observable<Object> | undefined;
   results: any;
-  // faccio iniettare lo spotify service e faccio una ricerca
   constructor(public service: BeersapiService) {
 
   }
@@ -23,16 +22,11 @@ export class SearchBirreComponent {
       return;
     }
     this.query = query.value;
-    this.obsBeers = this.service.getBeers();
+    this.obsBeers = this.service.getBeersByName(this.query);
     this.obsBeers.subscribe((data) => { this.results = data; console.log(this.results) });
   }
 
-  renderResults(res: any): void {
-    this.results = null;
-    if (res && res.tracks && res.tracks.items) {
-      this.results = res.tracks.items;
-    }
-  }
+  
 }
 
 

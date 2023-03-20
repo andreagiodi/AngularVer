@@ -6,17 +6,17 @@
 </p>
 
 <div *ngIf="results">
-    <div *ngIf="!results.products || results.products.length ==0">
+    <div *ngIf="!results || results.length ==0">
       Nessun prodotto chiamato: '{{ query }}'
     </div>
   
-    <div *ngIf="results.products &&  results.products.length > 0">
+    <div *ngIf="results &&  results.length > 0">
       <h1>Results</h1>
       <br>
       <div class="row">
-        <div class="col-sm-6 col-md-4" *ngFor="let t of results.products">
-          <img src="{{t.image_small_url}}" > <br>
-          <a [routerLink]="['/oggetto', t.id]">{{t.product_name}}</a>
+        <div class="col-sm-6 col-md-4" *ngFor="let t of results">
+          <a [routerLink]="['/item', t.id]">{{t.name}}</a> <br>
+          <img src="{{t.image_url}}" style="height: 200px; width: 100px;">
         </div>
       </div>
     </div>
