@@ -7,7 +7,7 @@ import { ItemBirreComponent } from './item-birre/item-birre.component';
 
 const routes: Routes = [             
   {path: 'search', component: SearchBirreComponent},         
-  {path: 'search/:id', component: ItemBirreComponent},
+  {path: 'item/:id', component: ItemBirreComponent},
 ];
 
 @NgModule({
